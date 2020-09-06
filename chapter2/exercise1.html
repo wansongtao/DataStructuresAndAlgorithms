@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平均成绩</title>
+</head>
+<body>
+    <script>
+        //记录学生成绩的构造函数
+        function StudentGrade() {
+            this.grade = [];
+            this.add = add;
+            this.average = average;
+        }
+
+        //添加一个学生的成绩
+        function add(grade) {
+            this.grade.push(grade);
+        }
+
+        //计算学生平均成绩
+        function average() {
+            let total = 0;
+
+            for(let i = 0; i < this.grade.length; ++i) {
+                total += this.grade[i];
+            }
+
+            return total / this.grade.length;
+        }
+
+        let sGrade = new StudentGrade();
+
+        sGrade.add(80);
+        sGrade.add(20);
+        sGrade.add(30);
+        sGrade.add(40);
+        sGrade.add(50);
+
+        let avg = sGrade.average();
+
+        document.write(`学生的平均成绩为${avg}`);
+    </script>
+</body>
+</html>

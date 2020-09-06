@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    最左边的一位代表符号位：0正，1负<br>
+    5的二进制： 00000000 00000000 00000000 00000101  <br>
+    ~5的二进制：11111111 11111111 11111111 11111010（负数的补码形式）10 = 1010 <br>
+
+    负数的补码为对该数的原码除符号位外各位取反，然后在再最后一位加一 <br>
+
+    求~5的值：先减一，在取反（符号位不变）<br>
+               11111111 11111111 11111111 11111001   9 = 1001 <br>
+               10000000 00000000 00000000 00000110   6 = 0110 <br>
+            值：-6
+            
+
+    <script>
+        //递归求阶乘 5! f(n) = n * f(n - 1)
+        function factorial(num) {
+            if(num == 1) {
+                return num;
+            }
+            else {
+                return num * factorial(num - 1);
+            }
+        }
+
+        //1 1 2 3 5 8 13 规律: f(n) = f(n - 1) + f(n - 2)
+        function factorial2(num) {
+            if (num <= 2) {
+                return 1;
+            } else {
+                return factorial2(num - 1) + factorial2(num - 2);
+            }
+        }
+
+        let num = prompt("您想要求几的阶乘？", 5);
+
+        let myResult = factorial(num);
+
+        document.write(`<br>${num}的阶乘为${myResult}<br>`);
+    </script>
+</body>
+</html>

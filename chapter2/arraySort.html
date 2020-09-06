@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组排序</title>
+</head>
+<body>
+    <script>
+        function compare(num1, num2) {
+            return num1 - num2;
+        }
+
+        let nums = [0, 1, 200, 3, 10];
+
+        //sort()方法是按照字典顺序对元素进行排序的，因此它假定元素都是字符串类型。
+        nums.sort();  //0 1 10 200 3
+
+        /*
+        为了让sort()方法也能排序数字类型的元素，可以在调用方法时传入一个大小比较函数
+        排序时，sort()方法会根据该函数比较数组中两个元素的大小，从而对数组元素进行排序
+        */
+        nums.sort(compare);  //0 1 3 10 200
+        console.log(nums);
+    </script>
+</body>
+</html>

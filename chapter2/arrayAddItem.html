@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为数组添加元素</title>
+</head>
+<body>
+    push()方法可以将元素添加在数组的末尾，unshift()可以将元素添加在数组的开头
+    <script>
+        let nums = [1, 2, 3, 4];
+        let newNum = 0;
+
+        //可以通过一次调用，在数组的开头添加多个元素。
+        nums.unshift(newNum, 2);
+        console.log(nums);  // 0 2 1 2 3 4
+    </script>
+</body>
+</html>

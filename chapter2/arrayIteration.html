@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组迭代</title>
+</head>
+<body>
+    <script>
+        function add(num1, num2) {
+            return num1 + num2;
+        }
+
+        let nums = [1,2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        //reduce()方法接受一个函数，返回一个值。
+        //该方法会从一个累加值开始，不断对累加值
+        //和数组中的后续元素调用该函数，直到数组中的最后一个元素，最后返回得到的累加值。
+        let sum = nums.reduce(add);  //55
+
+        console.log(sum);
+    </script>
+</body>
+</html>

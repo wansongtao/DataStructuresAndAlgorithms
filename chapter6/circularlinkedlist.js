@@ -29,6 +29,26 @@ function CircularLinkedList(){
     this.head.next = this.head;
 
     /**
+     * @description 保存当前节点
+     */
+    this.top = this.head;
+
+    /**
+     * @description 使当前节点向前移动n个节点
+     */
+    this.advance = advance;
+
+    /**
+     * @description 使当前节点向后移动n个节点
+     */
+    this.back = back;
+
+    /**
+     * @description 显示当前节点上的数据
+     */
+    this.show = show;
+
+    /**
      * @description 查找一个节点
      */
     this.find = find;
@@ -52,6 +72,11 @@ function CircularLinkedList(){
      * @description 显示链表中的所有节点中保存的数据
      */
     this.display = display;
+
+    /**
+     * @description 链表长度
+     */
+    this.listLength = listLength;
 }
 
 /**
@@ -93,8 +118,6 @@ function insert(newItem, item){
 
         //前一个节点的下一个节点变为新节点
         currentNode.next = newNode;
-
-        console.log(newNode);
     }else {
         alert("没有找到该节点");
     }
@@ -163,14 +186,128 @@ function display(){
     }
 }
 
+/**
+ * @description 向前移动n个节点
+ * @param {} n 
+ */
+function advance(n) {
+    let currentNode = this.top;
+
+    for(let i = 1; i < n + 1; i++){
+        //查找当前节点的前一个节点
+        currentNode = this.findPrevious(currentNode.element);
+
+        if(currentNode.element == "head") {
+            break;
+        }
+    }
+
+    this.top = currentNode;
+
+}
+
+/**
+ * @description 将当前节点向后移动n个节点
+ * @param {*} n 
+ */
+function back(n){
+    let currentNode = this.top;
+
+    for(let i = 0; i < n; i++){
+        currentNode = currentNode.next;
+
+        //移动到最后一个节点时，停止移动
+        // if(currentNode.next.element == "head"){
+        //     break;
+        // }
+
+        //跳过头节点
+        if(currentNode.element == "head"){
+            currentNode = currentNode.next;
+        }
+    }
+
+    this.top = currentNode;
+}
+
+/**
+ * @description 显示当前节点上的数据
+ */
+function show(){
+    document.write(this.top.element);
+}
+
+/**
+ * @description 返回链表的长度
+ */
+function listLength(){
+    let currNode = this.head;
+    let listLength = 0;
+
+    while(currNode.next.element != "head"){
+        currNode = currNode.next;
+        listLength++;
+    }
+
+    return listLength;
+}
+
+/**
+ * @description 返回最后活下来的人
+ * @param {*} index 每几个杀一个
+ */
+function killGame(index){
+    cities.back(1);
+
+    let dealypeople = [];
+
+    //直到链表长度小于index时，才跳出循环
+    while(cities.listLength() >= index) {
+
+        //移动到要删除的节点
+        cities.back(index - 1);
+
+        //待删除的节点
+        let delNode = cities.top;
+
+        //将当前位置向后移一位
+        cities.top = delNode.next;
+
+        dealypeople.push(delNode.element);
+        //删除这个节点
+        cities.remove(delNode.element);
+    }
+    
+    return dealypeople;
+}
+
 //主程序
 let cities = new CircularLinkedList();
 
-cities.insert("广州", "head");
-cities.insert("上海", "广州");
-cities.insert("北京", "上海");
-cities.insert("深圳", "北京");
-cities.insert("杭州", "深圳");
+//插入41个数据
+for(let loop = 1; loop < 42; loop++){
+    if(loop == 1) {
+        cities.insert(loop, "head");
+    } else {
+        cities.insert(loop, loop - 1);
+    }
+}
 
-cities.remove("上海");
+//alert(cities.listLength());
+
+let dealyP = killGame(3);
+
+// cities.insert("广州", "head");
+// cities.insert("上海", "广州");
+// cities.insert("北京", "上海");
+// cities.insert("深圳", "北京");
+// cities.insert("杭州", "深圳");
+
+// cities.remove("上海");
+// cities.display();
+
+// cities.back(43);
+// cities.show();
 cities.display();
+
+document.write(`死掉的人的位置：${dealyP.toString()}`);

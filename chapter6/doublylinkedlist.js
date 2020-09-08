@@ -1,3 +1,4 @@
+//双向链表，一个节点里保存自身的值和前一个节点、后一个节点
 /**
  * @description 双向链表的节点
  * @param {*} element 节点的值
@@ -52,6 +53,11 @@ function DoublyLinkedList(){
      * @description 显示链表中的所有节点的值
      */
     this.display = display;
+
+    /**
+     * @description 反序显示双向链表中的元素
+     */
+    this.dispReverse = dispReverse;
 }
 
 /**
@@ -63,13 +69,16 @@ function find(item){
     let currentNode = this.head;
 
     //通过遍历整个链表，查找这个值
-    while((currentNode.element != item)){
+    while(currentNode.element != item){
         currentNode = currentNode.next;
         
-        // if(currentNode == null) {
-        //     break;
-        // }
+        //遍历所有节点，都没有找到
+        if(currentNode == null) {
+            break;
+        }
     }
+
+    console.log(currentNode);
 
     return currentNode;
 }
@@ -85,14 +94,20 @@ function insert(newItem, item){
 
     let current = this.find(item);
 
-    //新节点的下一个节点为当前节点的下一个节点
-    newNode.next = current.next;
+    if(current != null){
+        //新节点的下一个节点为当前节点的下一个节点
+        newNode.next = current.next;
 
-    //新节点的前一个节点为当前节点
-    newNode.previous = current;
+        //新节点的前一个节点为当前节点
+        newNode.previous = current;
 
-    //当前节点的下一个节点为新节点
-    current.next = newNode;
+        //当前节点的下一个节点为新节点
+        current.next = newNode;
+    }else {
+        alert("没有在链表中查找到该节点。");
+    }
+
+    console.log(newNode);
 }
 
 /**
@@ -100,17 +115,22 @@ function insert(newItem, item){
  * @param {*} item 要移除的节点的值
  */
 function remove(item){
-    let current = find(item);
+    let current = this.find(item);
 
-    if(current.next != null){
+    if(current != null){
         //待删除节点的前一个节点的下一个节点变为待删除节点的下一个节点
         current.previous.next = current.next;
 
-        //待删除节点的下一个节点的前一个节点改为待删除节点的前一个节点
-        current.next.previous = current.previous;
+        if(current.next != null){
+            //待删除节点的下一个节点的前一个节点改为待删除节点的前一个节点
+            current.next.previous = current.previous;
+        }
 
+        current.element = null;
         current.next = null;
         current.previous = null;
+    }else {
+        alert("没有该节点");
     }
 }
 
@@ -139,3 +159,31 @@ function display(){
         current = current.next;
     }
 }
+
+/**
+ * @description 反序显示双向链表的节点
+ */
+function dispReverse(){
+    let currNode = this.head;
+
+    currNode = this.findLast();
+
+    while(currNode.previous != null){
+        document.write(currNode.element + "<br>");
+
+        currNode = currNode.previous;
+    }
+}
+
+//主程序
+let cities = new DoublyLinkedList();
+
+cities.insert("Conway", "head");
+cities.insert("Russellville", "Conway");
+
+//预计插入不成功
+//cities.insert("wst", "lst");
+
+cities.remove("Russellville");
+
+cities.display();

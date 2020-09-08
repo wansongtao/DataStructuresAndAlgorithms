@@ -52,7 +52,7 @@ function Queue(){
      */
     this.length = function(){
         return this.dataStore.length;
-    }
+    };
 }
 
 /**

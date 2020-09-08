@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优先队列实现患者就诊系统</title>
+    <style>
+        div {
+            width: 800px;
+            height: 600px;
+            margin: 100px auto;
+        }
+        label, input {
+            height: 30px;
+        }
+
+        input[type="button"] {
+            width: 80px;
+            height: 30px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form action="">
+            <p>
+                <label for="">姓名：</label>
+                <input type="text" id="name" placeholder="请输入您的名字">
+            </p>
+            <p>
+                <label for="">优先级代码：</label>
+                <input type="number" id="code" placeholder="请输入一个数字(0-9)">
+            </p>
+            <p>
+                <input type="button" value="挂号" id="add">
+                <input type="button" value="等待名单" id="view">
+            </p>
+        </form>
+        <div id="container">
+
+        </div>
+    </div>
+    <script src="priorityqueue.js"></script>
+</body>
+</html>

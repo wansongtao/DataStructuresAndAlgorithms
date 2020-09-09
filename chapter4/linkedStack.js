@@ -106,7 +106,7 @@ function pushStack(item){
     //栈尾元素的下一个节点变为新节点
     currentNode.next = newNode;
 
-    console.log(newNode);
+    //console.log(newNode);
 }
 
 /**
@@ -115,9 +115,11 @@ function pushStack(item){
 function popStack(){
     let currentNode = this.findLast();
 
+    let item;
+
     //空栈
     if(currentNode.element == "head"){
-        currentNode = null;
+        item = null;
     } else {
         let headNode = this.head;
 
@@ -128,9 +130,17 @@ function popStack(){
 
         //链表的最后一个节点的next为null
         headNode.next = null;
+
+        item = currentNode.element;
     }
 
-    return currentNode.element;
+    //delete函数是object类的一部分，使用对键的引用作为参数，同时删掉键与其关联的值。
+    delete currentNode.element;
+    delete currentNode.next;
+    console.log(currentNode);
+    //currentNode.element = null;
+
+    return item;
 }
 
 /**
@@ -139,7 +149,11 @@ function popStack(){
 function clearStack(){
     let headNode = this.head;
 
-    headNode.next = null;
+    while(headNode.next != null){
+        this.popStack();
+    }
+
+    //headNode.next = null;
 }
 
 /**
@@ -193,7 +207,7 @@ cities.pushStack("苏州");
 
 cities.clearStack();
 
-document.write(cities.stackLength());
+document.write(cities.stackLength() + "<br>" + cities.stackAllElement().toString());
 
 //cities.pushStack("扬州");
 

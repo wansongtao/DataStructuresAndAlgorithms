@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+<body>
+    <script>
+        let arr = ["万松涛", "爱斌如", "彭伟江", "冯亮", "xxx"];
+
+        //Array.prototype.slice.call(obj)：将具有length属性的对象转成数组
+        //Object.keys(arr)：返回一个对象中的所有键组成的数组
+        let arrkeys = Array.prototype.slice.call(Object.keys(arr));
+
+        console.log(arrkeys);  //0 1 2 3 4
+    </script>
+</body>
+</html>

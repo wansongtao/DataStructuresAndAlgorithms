@@ -262,7 +262,7 @@ function killGame(index){
     let dealypeople = [];
 
     //直到链表长度小于index时，才跳出循环
-    while(cities.listLength() >= index) {
+    while(!(cities.listLength() < index)) {
 
         //移动到要删除的节点
         cities.back(index - 1);
@@ -270,10 +270,16 @@ function killGame(index){
         //待删除的节点
         let delNode = cities.top;
 
-        //将当前位置向后移一位
-        cities.top = delNode.next;
-
+        //将当前位置向后移一位，跳过头节点
+        if(delNode.next.element == "head"){
+            cities.top = delNode.next.next;
+        }else {
+            cities.top = delNode.next;
+        }
+        
+        //保存删除的元素
         dealypeople.push(delNode.element);
+
         //删除这个节点
         cities.remove(delNode.element);
     }

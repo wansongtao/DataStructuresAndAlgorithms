@@ -253,12 +253,14 @@ function listLength(){
 }
 
 /**
- * @description 返回最后活下来的人
+ * @description 返回被杀掉的人的位置
  * @param {*} index 每几个杀一个
  */
 function killGame(index){
+    //跳过头节点
     cities.back(1);
 
+    //用来保存删除掉的数据
     let dealypeople = [];
 
     //直到链表长度小于index时，才跳出循环

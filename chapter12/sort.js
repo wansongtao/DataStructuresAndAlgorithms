@@ -264,7 +264,7 @@ function testAlgorithmSpeed(fn, count, loopCount){
         let arr = [];
 
         for(let i = 0; i < count; i++){
-            arr.push(Math.floor(Math.random() * count));
+            arr.push(Math.floor(Math.random() * count * 2));
         }
 
         let startTime = new Date().getTime();

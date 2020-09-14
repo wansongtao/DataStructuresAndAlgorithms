@@ -8,6 +8,7 @@ function sequentialSearch(arr, data){
     let temp;
     for(let i = 0; i < arr.length; i++){
         if(arr[i] == data){
+            // 80-20
             if(i > 0 && i > arr.length * 0.2){
                 //将查找到的数据的位置向前移一位
                 temp = arr[i];

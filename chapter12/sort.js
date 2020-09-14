@@ -27,6 +27,8 @@ function bubble(arr){
 function selectorMin(arr){
     let minIndex;
     let temp;
+
+    //将数组前面的元素和它后面的所有元素比较
     for(let i = 0; i < arr.length - 1; i++){
         minIndex = i;
         for(let j = i + 1; j < arr.length; j++){
@@ -78,21 +80,28 @@ function baseOrder(arr){
     let newArr = [];
     for(let i = 0; i < arr.length; i++){
 
+        //声明一个二维数组
         if(newArr[arr[i] % 10] == undefined){
             newArr[arr[i] % 10] = [];
         }
         
+        //例如：arr[0] = arr[0, 10, 20, 30]  arr[1] = [1,11,21, 31]
         newArr[arr[i] % 10].push(arr[i]);
     }
 
     //在按除以十的值大小排序
     let myArr = [];
     for(let i = 0; i < newArr.length; i++){
+        //例如：可能不存在个位数为2的数, 即arr[2] = undefined
         if(newArr[i] != null){
             for(let j = 0; j < newArr[i].length; j++){
+
+                //声明一个二维数组
                 if(myArr[Math.floor(newArr[i][j] / 10)] == undefined){
                     myArr[Math.floor(newArr[i][j] / 10)] = [];
                 }
+
+                //arr[1] = [11, 12, 13]  arr[2] = [20, 21, 22]...
                 myArr[Math.floor(newArr[i][j] / 10)].push(newArr[i][j]);
             }
         }
@@ -114,9 +123,17 @@ function baseOrder(arr){
  * @param {*} arr 
  */
 function insertOrder(arr){
+    /**
+     * @description 当前元素的前一个元素的索引
+     */
     let preIndex;
+
+    /**
+     * @description 当前元素的值
+     */
     let current;
 
+    //将后面的所有元素与它前面的数作比较
     for(let i = 1; i < arr.length; i++){
         current = arr[i];
         preIndex = i - 1;
@@ -169,7 +186,8 @@ function shellOrder(arr){
  * @param {*} arr 
  */
 function quickSort(arr){
-    if(arr.length == 0){
+    //当数组长度小于等于1时，不再拆分数组
+    if(arr.length <= 1){
         return [];
     }
 
@@ -177,7 +195,7 @@ function quickSort(arr){
     let largeArr = [];
     let pivot = arr[0];
 
-    //小于基准值的数放到lessArr数组中，大于基准值得数放到largeArr数组中
+    //小于基准值的数放到lessArr数组中，大于基准值的数放到largeArr数组中
     for(let i = 0; i < arr.length; i++){
         if(arr[i] < pivot){
             lessArr.push(arr[i]);
@@ -186,7 +204,7 @@ function quickSort(arr){
         }
     }
 
-    //递归这个过程，即重复以上操作
+    //递归这个过程，即重复以上操作(继续拆分直到排序完成)
     return quickSort(lessArr).concat(pivot, quickSort(largeArr));
 }
 
@@ -196,7 +214,7 @@ function quickSort(arr){
  */
 function mergeOrder(arr){
     //限制子序列的最小长度
-    if(arr.length < 2){
+    if(arr.length <= 2){
         return arr;
     }
 
@@ -290,14 +308,14 @@ let loopCount = parseInt(prompt("请输入要测试的次数", 100), 10);
 
 if(!isNaN(count) && !isNaN(loopCount)){
     if(count > 0 && loopCount > 0){
-        document.write(`<br>冒泡排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(bubble, count, loopCount)}毫秒<br>`);
-        document.write(`<br>选择排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(selectorMax, count, loopCount)}毫秒<br>`);
-        document.write(`<br>基数排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(baseOrder, count, loopCount)}毫秒<br>`);
-        document.write(`<br>插入排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(insertOrder, count, loopCount)}毫秒<br>`);
-        document.write(`<br>希尔排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(shellOrder, count, loopCount)}毫秒<br>`);
-        document.write(`<br>归并排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(mergeOrder, count, loopCount)}毫秒<br>`);
-        document.write(`<br>快速排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(quickSort, count, loopCount)}毫秒<br>`);
-        document.write(`<br>js内置sort排序：排序${count}个数字花费的时间为：${testAlgorithmSpeed(null, count, loopCount)}毫秒<br>`);
+        document.write(`<br>冒泡排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(bubble, count, loopCount)}毫秒<br>`);
+        document.write(`<br>选择排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(selectorMax, count, loopCount)}毫秒<br>`);
+        document.write(`<br>基数排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(baseOrder, count, loopCount)}毫秒<br>`);
+        document.write(`<br>插入排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(insertOrder, count, loopCount)}毫秒<br>`);
+        document.write(`<br>希尔排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(shellOrder, count, loopCount)}毫秒<br>`);
+        document.write(`<br>归并排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(mergeOrder, count, loopCount)}毫秒<br>`);
+        document.write(`<br>快速排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(quickSort, count, loopCount)}毫秒<br>`);
+        document.write(`<br>js内置sort排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(null, count, loopCount)}毫秒<br>`);
     }else {
         alert("两次输入的值都必须大于0");
     }

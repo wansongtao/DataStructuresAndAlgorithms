@@ -1,0 +1,74 @@
+[
+    {
+        "data": "wst1",
+        "child": [
+            {
+                "data": "lst1",
+                "child": [
+                    {
+                        "data":"abr1",
+                        "child": []
+                    },
+                    {
+                        "data":"pwj1",
+                        "child": []
+                    }
+                ]
+            },
+            {
+                "data": "lst2",
+                "child": [
+                    {
+                        "data":"abr2",
+                        "child": [
+                            {
+                                "data":"abr3",
+                                "child": []
+                            }
+                        ]
+                    },
+                    {
+                        "data":"pwj2",
+                        "child": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "data": "wst1",
+        "child": [
+            {
+                "data": "lst1",
+                "child": [
+                    {
+                        "data":"abr1",
+                        "child": []
+                    },
+                    {
+                        "data":"pwj1",
+                        "child": []
+                    }
+                ]
+            },
+            {
+                "data": "lst2",
+                "child": [
+                    {
+                        "data":"abr2",
+                        "child": [
+                            {
+                                "data":"abr3",
+                                "child": []
+                            }
+                        ]
+                    },
+                    {
+                        "data":"pwj2",
+                        "child": []
+                    }
+                ]
+            }
+        ]
+    }
+]

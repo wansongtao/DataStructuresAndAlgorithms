@@ -39,13 +39,20 @@ function prevOrder(data){
         
         for(let j = 0; j < data.length; j++){
             let rootNode = document.createElement("li");
+            let aNode = document.createElement("a");
             let textNode = document.createTextNode(data[j].data);
+
+            aNode.setAttribute("data", data[j].data);
+
+            aNode.appendChild(textNode);
+            rootNode.appendChild(aNode);
+            menubox.appendChild(rootNode);
 
             function treeOrder(data) {
                 if(data.child != null){
                     for(let i = 0; i < data.child.length; i++){
 
-                        document.write(`父节点：${data.data}&nbsp;&nbsp;子节点：${data.child[i].data}<br>`);
+                        //document.write(`父节点：${data.data}&nbsp;&nbsp;子节点：${data.child[i].data}<br>`);
                         treeOrder(data.child[i]);
                     }
                 }

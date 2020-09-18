@@ -1,0 +1,161 @@
+[
+    {
+        "data": "图书",
+        "parentNode": "",
+        "url": "",
+        "child": [
+            {
+                "data": "科幻",
+                "parentNode": "图书",
+                "url": "",
+                "child": [
+                    {
+                        "data":"三体",
+                        "parentNode": "科幻",
+                        "url": "",
+                        "child": [
+                            {
+                                "data":"三体一",
+                                "parentNode": "三体",
+                                "url": "javascript:;",
+                                "child": []
+                            },
+                            {
+                                "data":"三体二",
+                                "parentNode": "三体",
+                                "url": "javascript:;",
+                                "child": []
+                            },
+                            {
+                                "data":"三体三",
+                                "parentNode": "三体",
+                                "url": "javascript:;",
+                                "child": []
+                            }
+                        ]
+                    },
+                    {
+                        "data":"基地",
+                        "parentNode": "科幻",
+                        "url": "",
+                        "child": [
+                            {
+                                "data":"基地一",
+                                "parentNode": "基地",
+                                "url": "javascript:;",
+                                "child": []
+                            },
+                            {
+                                "data":"基地二",
+                                "parentNode": "基地",
+                                "url": "javascript:;",
+                                "child": []
+                            },
+                            {
+                                "data":"基地三",
+                                "parentNode": "基地",
+                                "url": "javascript:;",
+                                "child": []
+                            },
+                            {
+                                "data":"基地四",
+                                "parentNode": "基地",
+                                "url": "javascript:;",
+                                "child": []
+                            },
+                            {
+                                "data":"基地五",
+                                "parentNode": "基地",
+                                "url": "javascript:;",
+                                "child": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": "科普",
+                "child": [
+                    {
+                        "data":"时间简史",
+                        "url": "javascript:;",
+                        "child": []
+                    },
+                    {
+                        "data":"果壳中的宇宙",
+                        "url": "javascript:;",
+                        "child": []
+                    }
+                ]
+            },
+            {
+                "data": "工具书",
+                "child": [
+                    {
+                        "data":"javaScript入门经典",
+                        "url": "javascript:;",
+                        "child": []
+                    },
+                    {
+                        "data":"JavaScript高级程序设计",
+                        "url": "javascript:;",
+                        "child": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "data": "电脑",
+        "parentNode": "",
+        "url": "",
+        "child": [
+            {
+                "data": "笔记本电脑",
+                "parentNode": "电脑",
+                "url": "",
+                "child": [
+                    {
+                        "data":"苹果电脑",
+                        "parentNode": "笔记本电脑",
+                        "url": "",
+                        "child": []
+                    },
+                    {
+                        "data":"联想电脑",
+                        "parentNode": "笔记本电脑",
+                        "url": "",
+                        "child": [
+                            {
+                                "data":"ThinkPad T系列",
+                                "parentNode": "联想电脑",
+                                "url": "javascript:;",
+                                "child": []
+                            },
+                            {
+                                "data":"ThinkPad X系列",
+                                "parentNode": "联想电脑",
+                                "url": "",
+                                "child": [
+                                    {
+                                        "data":"ThinkPad X1隐士",
+                                        "parentNode": "ThinkPad X系列",
+                                        "url": "javascript:;",
+                                        "child": []
+                                    },
+                                    {
+                                        "data":"ThinkPad X390",
+                                        "parentNode": "ThinkPad X系列",
+                                        "url": "javascript:;",
+                                        "child": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+            
+        ]
+    }
+]

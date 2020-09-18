@@ -26,13 +26,28 @@ function Tree(){
 
 /**
  * @description 插入子节点
- * @param {*} parentNode 要插入节点的父节点
+ * @param {*} parentNode 要插入节点的父节点保存的数据
  * @param {*} data 要插入节点保存的数据信息
  */
-Tree.prototype.insert = function(parentNode, data){
-    let newNode = new Node(data);
+Tree.prototype.insert = function(parentData, data){
+    try{
+        let newNode = new Node(data);
 
-    parentNode.child.push(newNode);
+        let parentNode = this.find(this.root, parentData);
+
+        if(parentNode != null){
+            parentNode.child.push(newNode);
+        }
+        else{
+            throw {
+                message: "未查找到父节点"
+            };
+        }
+        
+    }
+    catch(ex){
+        alert(ex.message);
+    }
 };
 
 /**
@@ -64,17 +79,46 @@ Tree.prototype.prevOrder = function (node){
     }
 };
 
+/**
+ * @description 根据数据信息，返回节点
+ * @param {*} data 
+ * @param node 从当前节点开始向后查找
+ */
+Tree.prototype.find = function(node, data){
+    try{
+        if(node != null){
+            if(node.child != null){
+                if(node.dataStore == data){
+                    return node;
+                }
+
+                for(let i = 0; i < node.child.length; i++){
+                    if(node.child[i].dataStore == data){
+                        return node.child[i];
+                    }else{
+                        find(node.child[i], data);
+                    }
+                }
+
+            }
+        }
+    }
+    catch(ex){
+        alert(ex.message);
+    }
+}
+
 
 //主程序
 let myNode = new Tree();
 
-myNode.insert(myNode.root, "wst");
-myNode.insert(myNode.root, "lst");
-myNode.insert(myNode.root, "st");
-myNode.insert(myNode.root.child[0], "aaa1");
-myNode.insert(myNode.root.child[0], "aaa2");
-myNode.insert(myNode.root.child[1], "bbb");
-myNode.insert(myNode.root.child[2], "ccc");
+myNode.insert("root", "wst");
+myNode.insert("root", "lst");
+myNode.insert("root", "st");
+myNode.insert("wst", "aaa1");
+myNode.insert("wst", "aaa2");
+myNode.insert("lst", "bbb");
+myNode.insert("st", "ccc");
 
 console.log(myNode);
 

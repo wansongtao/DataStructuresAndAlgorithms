@@ -255,19 +255,6 @@ function merge(leftArr, rightArr){
     return result;
 }
 
-/*let arr = [11, 23, 12, 38, 4, 10, 9, 15, 7, 66, 20, 2, 39, 99, 100, 120, 121];
-
-document.write(`原数组：${arr.toString()}<br><br>`);
-
-document.write(`冒泡排序：${bubble(arr).toString()}<br>`);
-document.write(`选择排序（最小值）：${selectorMin(arr).toString()}<br>`);
-document.write(`选择排序（最大值）：${selectorMax(arr).toString()}<br>`);
-document.write(`基数排序：${baseOrder(arr).toString()}<br>`);
-document.write(`插入排序：${insertOrder(arr).toString()}<br>`);
-document.write(`希尔排序：${shellOrder(arr).toString()}<br>`);
-document.write(`归并排序：${mergeOrder(arr).toString()}<br>`);
-document.write(`快速排序：${quickSort(arr).toString()}<br>`);*/
-
 /**
  * @description 测试排序算法速度
  * @param fn 要测试的排序函数
@@ -307,8 +294,7 @@ let count = parseInt(prompt("请输入要生成的随机数数量", 100), 10);
 let loopCount = parseInt(prompt("请输入要测试的次数", 100), 10);
 
 if(!isNaN(count) && !isNaN(loopCount)){
-    if(count > 0 && loopCount > 0){
-        document.write(`<br>冒泡排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(bubble, count, loopCount)}毫秒<br>`);
+    if(count > 0 && loopCount > 0){     
         document.write(`<br>选择排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(selectorMax, count, loopCount)}毫秒<br>`);
         document.write(`<br>基数排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(baseOrder, count, loopCount)}毫秒<br>`);
         document.write(`<br>插入排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(insertOrder, count, loopCount)}毫秒<br>`);
@@ -316,6 +302,7 @@ if(!isNaN(count) && !isNaN(loopCount)){
         document.write(`<br>归并排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(mergeOrder, count, loopCount)}毫秒<br>`);
         document.write(`<br>快速排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(quickSort, count, loopCount)}毫秒<br>`);
         document.write(`<br>js内置sort排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(null, count, loopCount)}毫秒<br>`);
+        document.write(`<br>冒泡排序：排序${count}个数字花费的时间为（测试次数${loopCount}）：${testAlgorithmSpeed(bubble, count, loopCount)}毫秒<br>`);
     }else {
         alert("两次输入的值都必须大于0");
     }

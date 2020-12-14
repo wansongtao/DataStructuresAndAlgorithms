@@ -188,7 +188,7 @@ function shellOrder(arr){
 function quickSort(arr){
     //当数组长度小于等于1时，不再拆分数组
     if(arr.length <= 1){
-        return [];
+        return arr;
     }
 
     let lessArr = [];
@@ -196,10 +196,10 @@ function quickSort(arr){
     let pivot = arr[0];
 
     //小于基准值的数放到lessArr数组中，大于基准值的数放到largeArr数组中
-    for(let i = 0; i < arr.length; i++){
+    for(let i = 1; i < arr.length; i++){
         if(arr[i] < pivot){
             lessArr.push(arr[i]);
-        }else if(arr[i] > pivot){
+        }else{
             largeArr.push(arr[i]);
         }
     }
@@ -214,7 +214,7 @@ function quickSort(arr){
  */
 function mergeOrder(arr){
     //限制子序列的最小长度
-    if(arr.length <= 2){
+    if(arr.length <= 1){
         return arr;
     }
 

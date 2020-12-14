@@ -1,3 +1,2 @@
 # DataStructuresAndAlgorithms
 JavaScript数据结构与算法
-一个大学生重新学习数据结构与算法的过程

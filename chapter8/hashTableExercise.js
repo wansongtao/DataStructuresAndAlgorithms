@@ -5,7 +5,7 @@ function HashTable(){
     /**
      * @description 为了避免碰撞，数组长度一般为质数
      */
-    this.dataStore = new Array(137);
+    this.table = new Array(137);
 }
 
 /**
